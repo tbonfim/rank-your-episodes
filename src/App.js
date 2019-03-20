@@ -1,16 +1,8 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import EpisodeList from './components/EpisodeList/EpisodeList';
 import './App.css';
-import episodeList from './episode-list';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        { episodeList.map( (episode) => <h1>{episode.title}</h1> )}
-      </div>
-    );
-  }
+export default function App () {
+  return <EpisodeList />;
+  
 }
-
-export default App;
