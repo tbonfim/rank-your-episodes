@@ -7,13 +7,15 @@ export default function Episode({episode}) {
             <div className="card-body"> 
                 <div className="card-title row">
                     <h5 className="col-sm-9">{episode.title}</h5>
-                    <span className="col-sm-3">{episode.date}</span>
+                    <span className="col-sm-3">{episode.seasonOrder} </span>
                 </div>
+                
+                <img className="img-fluid rounded" alt={"Image from episode " + episode.title} src={episode.image}/>
                 <ul className="list-group list-group-flush list-unstyled">
                     <li className="list-group-item">Director: {episode.director}</li>
                     <li className="list-group-item">Written by: {episode.writter}</li>
                     <li className="list-group-item">Starring: {episode.starring} </li>
-                    <li className="list-group-item">Starring: {episode.starring} </li>
+                    <li className="list-group-item">Release Date: {episode.date} </li>
                 </ul>
                 <p className="card-body">{episode.description}</p>
             </div>
