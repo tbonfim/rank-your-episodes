@@ -1,14 +1,14 @@
 import React from 'react';
-
+import './episode.scss'
 
 export default function Episode({episode}) {
     return ( 
-        <div className="card col-sm-12" >
+        <div className="card col-sm-12 episode-container" >
             <div className="card-body row"> 
                 <div className="card-title col-sm-12">
                     <a href={"#episode-"+ episode.overallOrder} className="row text-secondary" data-toggle="collapse" aria-expanded="false" aria-controls={"#episode-"+ episode.overallOrder} >
                         <h5 className="col-sm-9">{episode.title}</h5>
-                        <span className="col-sm-3">{episode.seasonOrder} </span>
+                        <span className="col-sm-3 season-order">{episode.seasonOrder} </span>
                     </a>
                 </div>
                 <div className={"collapse " + (episode.overallOrder === 1 ? "show": "" ) } id={"episode-" + episode.overallOrder}>
