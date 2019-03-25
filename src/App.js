@@ -6,7 +6,6 @@ export default function App () {
   return (
     <div className="mt-5">
       <h1 className="text-info">Black Mirror</h1>
-      <h4 className="text-secondary">Episodes List</h4>
       <EpisodeList />
     </div>
   );
