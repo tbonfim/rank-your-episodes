@@ -1,10 +1,16 @@
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 
 const episodeRoutes = require('./api/routes/episodes');
+
+mongoose.connect(process.env.MONGO_PATH, { useNewUrlParser: true })
+.catch((reason) => {
+  console.log('Unable to connect to the mongodb instance. Error: ', reason);
+});
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
@@ -13,7 +19,7 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header( 'Access-Control-Allow-Headers', 
-                  'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+              'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   
   if(req.method === 'OPTIONS'){
     res.header('Acess-Control-Allow-Methos', 'PUT, POST, PATCH, DELETE, GET');
